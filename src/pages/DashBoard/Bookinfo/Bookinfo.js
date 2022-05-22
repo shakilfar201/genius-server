@@ -19,7 +19,7 @@ const Bookinfo = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm("Are You sure You Want to Delete?")
         if (proceed) {
-            fetch(`https://mysterious-cove-34253.herokuapp.com/booking/${id}`, {
+            fetch(`https://calm-everglades-03915.herokuapp.com/booking/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
@@ -37,7 +37,7 @@ const Bookinfo = () => {
 
 
     useEffect(() => {
-        const url = `https://mysterious-cove-34253.herokuapp.com/booking?email=${user.email}`
+        const url = `https://calm-everglades-03915.herokuapp.com/booking?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => {

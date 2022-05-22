@@ -17,7 +17,7 @@ const AddProduct = () => {
 
     const handleProduct = (e) => {
         e.preventDefault()
-        fetch('https://mysterious-cove-34253.herokuapp.com/products', {
+        fetch('https://calm-everglades-03915.herokuapp.com/products', {
             method: 'POST',
             headers: {
                 'content-type':'application/json'

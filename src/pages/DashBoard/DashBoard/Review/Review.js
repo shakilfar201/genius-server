@@ -14,7 +14,7 @@ const Review = () => {
             ...addOld,
         }
         e.preventDefault();
-        fetch('https://mysterious-cove-34253.herokuapp.com/review', {
+        fetch('https://calm-everglades-03915.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

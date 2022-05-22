@@ -18,7 +18,7 @@ const MakeAdmin = () => {
     const handleAdmin = (e) => {
         e.preventDefault()
         const user = { email }
-        fetch('https://mysterious-cove-34253.herokuapp.com/users/admin', {
+        fetch('https://calm-everglades-03915.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

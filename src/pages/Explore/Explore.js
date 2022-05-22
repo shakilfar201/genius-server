@@ -10,7 +10,7 @@ const Explore = () => {
     const [displayProduct, setDisplayProduct] = useState([]);
 
     useEffect(() => {
-        const url = "https://mysterious-cove-34253.herokuapp.com/products";
+        const url = "https://calm-everglades-03915.herokuapp.com/products";
         fetch(url)
             .then(res => res.json())
             .then(data => {

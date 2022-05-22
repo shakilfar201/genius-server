@@ -17,7 +17,7 @@ const ConfirmOrder = () => {
     const handleStatus = (e) => {
         e.preventDefault()
         const user = { email }
-        fetch('https://mysterious-cove-34253.herokuapp.com/booking', {
+        fetch('https://calm-everglades-03915.herokuapp.com/booking', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
