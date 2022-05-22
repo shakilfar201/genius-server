@@ -75,7 +75,9 @@ const Bookinfo = () => {
                                 <TableCell align="right">{row.productName}</TableCell>
                                 <TableCell align="right">{row.quantity}</TableCell>
                                 <TableCell align="right">{row.phoneNumber}</TableCell>
-                                <TableCell sx={{color: '#c0392b'}} align="right">pending</TableCell>
+                                {
+                                    row?.status ? <TableCell sx={{color: 'green'}} align="right">{row.status}</TableCell> : <TableCell sx={{color: 'red'}} align="right">Pending</TableCell>
+                                }
                                 <TableCell align="right"> <Button sx={{color: 'red'}} onClick={() => handleDelete(row?._id)}>Delete</Button> </TableCell>
                             </TableRow>
                         ))}
