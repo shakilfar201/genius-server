@@ -89,7 +89,7 @@ const Bookinfo = () => {
                     <Alert sx={{width: "75%", marginLeft: '60px', mt: 25}} severity="success">Order Delete Successfully!</Alert>
                     </Grid>
                     <Grid item xs={6} md={6} sm={12}>
-                        <img src={delete1} widthh="100%" alt=""/>
+                        <img src={delete1} width="100%" alt=""/>
                     </Grid>
                 </Grid>
             }

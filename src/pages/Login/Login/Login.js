@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import login1 from '../../../images/login.png'
+import login1 from '../../../images/login.png';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { useHistory, useLocation } from 'react-router';

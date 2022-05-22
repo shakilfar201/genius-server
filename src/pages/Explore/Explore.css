@@ -1,0 +1,9 @@
+.search{
+    background-color: rgb(214, 236, 229);
+    text-align: center;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+.search input{
+    width: 50%;
+}

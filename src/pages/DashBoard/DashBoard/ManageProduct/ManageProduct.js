@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import delete1 from '../../../../images/delete-removebg-preview.png'
+import delete1 from '../../../../images/delete-removebg-preview.png';
 import { Alert, Button, Grid, Typography } from '@mui/material';
 
 const ManageOrder = () => {
@@ -18,7 +18,7 @@ const ManageOrder = () => {
         .then(res=> res.json())
         .then(data=> {
             setAllProduct(data)
-            console.log(data)
+            // console.log(data)
         })
     },[]);
 
@@ -30,7 +30,7 @@ const ManageOrder = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+                    // console.log(data)
                     if (data.deletedCount) {
                         const remaining = allProduct.filter(order => order._id !== id)
                         setAllProduct(remaining)
@@ -51,7 +51,7 @@ const ManageOrder = () => {
                         <TableRow>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }}>Product ID</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Product Name</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Price</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Part No</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Action</TableCell>
                         </TableRow>
                     </TableHead>
@@ -75,7 +75,7 @@ const ManageOrder = () => {
             {deleteSuccess &&
                 <Grid container spacing={2}>
                     <Grid item xs={5} md={6} sm={12}>
-                    <Alert sx={{width: "75%", marginLeft: '60px', mt: 25}} severity="success"> Admin Order Delete Successfully!</Alert>
+                    <Alert sx={{width: "75%", marginLeft: '60px', mt: 25}} severity="success"> Admin Product Delete Successfully!</Alert>
                     </Grid>
                     <Grid item xs={6} md={6} sm={12}>
                         <img src={delete1} widthh="100%" alt=""/>

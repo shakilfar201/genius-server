@@ -26,6 +26,7 @@ import useAuth from '../../../hooks/useAuth';
 import ManageProduct from './ManageProduct/ManageProduct';
 import Review from './Review/Review';
 import UserPay from './UserPay/UserPay';
+import ConfirmOrder from './ConfirmOrder/ConfirmOrder';
 
 const drawerWidth = 240;
 
@@ -60,6 +61,7 @@ function DashBoard(props) {
                 <Link to={`${url}/addProduct`}> <Button color="inherit" variant="text">Add Product</Button> </Link>
                 <Link to={`${url}/manageOrders`}> <Button color="inherit" variant="text">Manage Order</Button> </Link>
                 <Link to={`${url}/manageproduct`}> <Button color="inherit" variant="text">Manage Product</Button> </Link>
+                <Link to={`${url}/confirm`}> <Button color="inherit" variant="text">Confirm Order</Button> </Link>
             </Box>}
             <Button onClick={()=>logOut(location,history)} color="inherit" variant="text">Logout</Button>
         </div>
@@ -151,6 +153,9 @@ function DashBoard(props) {
                     </Route>
                     <Route path={`${path}/review`}>
                         <Review></Review>
+                    </Route>
+                    <Route path={`${path}/confirm`}>
+                        <ConfirmOrder></ConfirmOrder>
                     </Route>
                 </Switch>
 

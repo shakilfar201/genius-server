@@ -44,6 +44,16 @@ const AddProduct = () => {
                     sx={{ width: "75%", m: 1 }}
                     required
                     id="standard-basic"
+                    label="Part No"
+                    name="price"
+                    onBlur={handleonBlur}
+                    type="text"
+                    variant="standard" />
+                    
+                <TextField
+                    sx={{ width: "75%", m: 1 }}
+                    required
+                    id="standard-basic"
                     label="Product Name"
                     name="name"
                     onBlur={handleonBlur}
@@ -66,7 +76,7 @@ const AddProduct = () => {
                     required
                     id="standard-basic"
                     label="Price"
-                    name="price"
+                    name="partNo"
                     onBlur={handleonBlur}
                     type="text"
                     variant="standard" />
@@ -75,8 +85,38 @@ const AddProduct = () => {
                     sx={{ width: "75%", m: 1 }}
                     required
                     id="standard-basic"
-                    label="Discription"
-                    name="discription"
+                    label="In-Stock"
+                    name="instock"
+                    onBlur={handleonBlur}
+                    type="text-area"
+                    variant="standard" />
+
+                <TextField
+                    sx={{ width: "75%", m: 1 }}
+                    required
+                    id="standard-basic"
+                    label="Block"
+                    name="Block"
+                    onBlur={handleonBlur}
+                    type="text-area"
+                    variant="standard" />
+
+                <TextField
+                    sx={{ width: "75%", m: 1 }}
+                    required
+                    id="standard-basic"
+                    label="Self-Name"
+                    name="selfName"
+                    onBlur={handleonBlur}
+                    type="text-area"
+                    variant="standard" />
+
+                <TextField
+                    sx={{ width: "75%", m: 1 }}
+                    required
+                    id="standard-basic"
+                    label="Side"
+                    name="side"
                     onBlur={handleonBlur}
                     type="text-area"
                     variant="standard" />

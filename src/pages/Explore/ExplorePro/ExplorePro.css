@@ -1,0 +1,113 @@
+.parts{
+    margin-left: 70px;
+}
+
+@media screen and (max-width: 780px){
+    .parts{
+        margin-left: 20px;
+    }
+}
+
+.heading{
+    padding: 20px 0;
+}
+.container{
+    max-width: 1300px;
+    margin: auto;
+}
+.part-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.part-container .box{
+    flex: 1 1 21rem;
+    position: relative;
+    padding: 20px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    background: #f6f6f6;
+    border-radius: 0.5rem;
+}
+
+.part-container .box img{
+    width: 365px;
+    height: 400px;
+    object-fit: contain;
+    object-position: center;
+    margin-bottom: 1rem;
+}
+
+.part-container .box h3{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.part-container .box span{
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(31, 30, 30);
+    margin: 0.5rem 0;
+}
+
+.btn{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    border-radius: 25px;
+    padding: 10px 22px;
+    border: none;
+    outline: none;
+    margin-bottom: 14px;
+    color: white;
+    background: #27ae60;
+}
+
+.btn:hover{
+    cursor: pointer;
+    transition:all .4s ease-in-out;
+    background: none;
+    color: black;
+    box-shadow: 1px 2px 7px rgba(0,0,0, .4);
+}
+
+
+
+.part-container .box .btn{
+    margin-top: 10px;
+    max-width: 120px;
+}
+.part-container .box .details{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 2.3rem;
+    right: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: #3498db;
+}
+
+.part-container .box .details:hover{
+    cursor: pointer;
+    transition:all .4s ease-in-out;
+    background: #3498db;
+    outline: none;
+    border: none;
+    color: #FFF;
+}
+
+.description{
+    
+}
+.description ol{
+    display: block;
+}
+.description ol li{
+    display: block;
+    list-style: none;
+}
