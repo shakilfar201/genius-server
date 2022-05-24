@@ -50,12 +50,15 @@ const ManageOrder = () => {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }}>Token No</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }}>Customer Name</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }}>Customer Email</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }}>Part No</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Product Name</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Quantity</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Phone Number</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Status</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Action</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -65,14 +68,23 @@ const ManageOrder = () => {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
+                                    {row.token}
+                                </TableCell>
+                                <TableCell component="th" scope="row">
                                     {row.customerName}
                                 </TableCell>
                                 <TableCell component="th" scope="row">
                                     {row.email}
                                 </TableCell>
+                                <TableCell component="th" scope="row">
+                                    {row.productPrice}
+                                </TableCell>
                                 <TableCell align="right">{row.productName}</TableCell>
                                 <TableCell align="right">{row.quantity}</TableCell>
                                 <TableCell align="right">{row.phoneNumber}</TableCell>
+                                {
+                                    row?.status ? <TableCell sx={{color: 'green'}} align="right">{row.status}</TableCell> : <TableCell sx={{color: 'red'}} align="right">Pending</TableCell>
+                                }
                                 <TableCell align="right"> <Button sx={{ color: 'red' }} onClick={() => handleDelete(row?._id)}>Delete</Button> </TableCell>
                             </TableRow>
                         ))}

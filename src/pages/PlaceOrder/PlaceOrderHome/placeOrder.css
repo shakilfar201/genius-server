@@ -1,0 +1,11 @@
+.button {
+    position: absolute;
+    top: 431px;
+    left: 689px;
+}
+.design-btn {
+    background: white;
+    color: black;
+    border-radius: 6px;
+    font-size: 14px;
+}

@@ -8,15 +8,17 @@ import order1 from '../../images/order.png';
 import order2 from '../../images/place-order-removebg-preview.png';
 import { Alert, Button, Typography } from '@mui/material';
 import useAuth from '../../hooks/useAuth';
+import './PlaceOrderHome/placeOrder.css';
 
 const PlaceOrder = () => {
     const { id } = useParams();
     const { user } = useAuth();
-    
-    const [single, setSingle] = useState([]);
-    const [bookSuccess, setBookSuccess] = useState(false)
 
-    const initialize = { customerName: user.displayName, email: user.email}
+    const [single, setSingle] = useState([]);
+    const [bookSuccess, setBookSuccess] = useState(false);
+    // const [tokenConfirm, setTokenConfirm] = useState('');
+
+    const initialize = { customerName: user.displayName, email: user.email }
 
     const [order, setOrder] = useState(initialize)
 
@@ -47,20 +49,33 @@ const PlaceOrder = () => {
             productID: single._id,
         }
         // console.log(orderBook)
-        fetch('https://calm-everglades-03915.herokuapp.com/booking',{
+        fetch('https://calm-everglades-03915.herokuapp.com/booking', {
             method: 'POST',
             headers: {
-                'content-type':'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(orderBook)
         })
-        .then(res=> res.json())
-        .then(data=> {
-            if(data.insertedId){
-                setBookSuccess(true)
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    setBookSuccess(true)
+                }
+            })
         e.preventDefault()
+    }
+
+    const getToken = () => {
+        const chars = "0123456789ZEMECO";
+        const tokenLength = 6;
+        let token = '';
+
+        for (var i = 0; i < tokenLength; i++) {
+            var randomToken = Math.floor(Math.random() * chars.length);
+            token += chars.substring(randomToken, randomToken + 1);
+        }
+        document.getElementById("token").value = token;
+        // return token;
     }
 
     return (
@@ -72,11 +87,13 @@ const PlaceOrder = () => {
                             PLACE YOUR ORDER
                         </Typography>
 
-                        {bookSuccess && <Alert sx={{width: "75%", marginLeft: '60px', mb: 2}} severity="success">Order Placed Successfully! Go To Dashboard</Alert>}
+                        {bookSuccess && <Alert sx={{ width: "75%", marginLeft: '60px', mb: 2 }} severity="success">Order Placed Successfully! Go To Dashboard</Alert>}
+
+                        <div id="btn" onClick={getToken} className="button"><button className="design-btn">Generate token</button></div>
 
                         <form onSubmit={handleOrder}>
-                            <Typography variant="h5" sx={{ color: 'green', fontWeight: 600, textAlign: 'left', ml: 9, mb: 5}}>
-                               Product Name: {single.name}
+                            <Typography variant="h5" sx={{ color: 'green', fontWeight: 600, textAlign: 'left', ml: 9, mb: 5 }}>
+                                Product Name: {single.name}
                             </Typography>
                             <TextField
                                 sx={{ width: "75%", m: 1 }}
@@ -87,6 +104,17 @@ const PlaceOrder = () => {
                                 defaultValue={user.displayName}
                                 size="small"
                             />
+                            {/* <input type="text" name="token" onBlur={handleonBlur} placeholder="Token No" id="token" /> */}
+                            
+                            <TextField
+                                sx={{ width: "75%", m: 1 }}
+                                label="Token No"
+                                id="token"
+                                onBlur={handleonBlur}
+                                name="token"
+                                size="small"
+                            />
+
                             <TextField
                                 sx={{ width: "75%", m: 1 }}
                                 label="Email"
@@ -95,9 +123,11 @@ const PlaceOrder = () => {
                                 name="email"
                                 defaultValue={user.email}
                                 size="small"
+                                disabled
                             />
+
                             <TextField
-                            required
+                                required
                                 sx={{ width: "75%", m: 1 }}
                                 label="Phone Number"
                                 id="outlined-size-small"
@@ -106,7 +136,7 @@ const PlaceOrder = () => {
                                 size="small"
                             />
                             <TextField
-                            required
+                                required
                                 sx={{ width: "75%", m: 1 }}
                                 label="Product quantity"
                                 id="outlined-size-small"
