@@ -1,4 +1,4 @@
-import { Alert, Button, Grid, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import Table from '@mui/material/Table';
@@ -8,33 +8,32 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import delete1 from '../../../images/delete-removebg-preview.png'
+// import delete1 from '../../../images/delete-removebg-preview.png'
 
 const Bookinfo = () => {
 
     const { user } = useAuth();
     const [showOrder, setShowOrder] = useState([]);
-    const [deleteSuccess, setDeleteSuccess] = useState(false)
+    // const [deleteSuccess, setDeleteSuccess] = useState(false)
 
-    const handleDelete = (id) => {
-        const proceed = window.confirm("Are You sure You Want to Delete?")
-        if (proceed) {
-            fetch(`https://calm-everglades-03915.herokuapp.com/booking/${id}`, {
-                method: 'DELETE',
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    if (data.deletedCount) {
-                        alert('DELETED SUCCESSFULLY')
-                        const remaining = showOrder.filter(order => order._id !== id)
-                        setShowOrder(remaining)
-                        setDeleteSuccess(true)
-                    }
-                })
-        };
-    };
-
+    // const handleDelete = (id) => {
+    //     const proceed = window.confirm("Are You sure You Want to Delete?")
+    //     if (proceed) {
+    //         fetch(`https://calm-everglades-03915.herokuapp.com/booking/${id}`, {
+    //             method: 'DELETE',
+    //         })
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 console.log(data)
+    //                 if (data.deletedCount) {
+    //                     alert('DELETED SUCCESSFULLY')
+    //                     const remaining = showOrder.filter(order => order._id !== id)
+    //                     setShowOrder(remaining)
+    //                     setDeleteSuccess(true)
+    //                 }
+    //             })
+    //     };
+    // };
 
     useEffect(() => {
         const url = `https://calm-everglades-03915.herokuapp.com/booking/email?email=${user.email}`
@@ -65,7 +64,6 @@ const Bookinfo = () => {
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Phone Number</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Taka</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Status</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Action</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -93,14 +91,13 @@ const Bookinfo = () => {
                                 {
                                     row?.status ? <TableCell sx={{color: 'green'}} align="right">{row.status}</TableCell> : <TableCell sx={{color: 'red'}} align="right">Pending</TableCell>
                                 }
-                                <TableCell align="right"> <Button sx={{color: 'red'}} onClick={() => handleDelete(row?._id)}>Delete</Button> </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
             </TableContainer>
 
-            {deleteSuccess &&
+            {/* {deleteSuccess &&
                 <Grid container spacing={2}>
                     <Grid item xs={5} md={6} sm={12}>
                     <Alert sx={{width: "75%", marginLeft: '60px', mt: 25}} severity="success">Order Delete Successfully!</Alert>
@@ -109,7 +106,7 @@ const Bookinfo = () => {
                         <img src={delete1} width="100%" alt=""/>
                     </Grid>
                 </Grid>
-            }
+            } */}
         </>
     );
 };

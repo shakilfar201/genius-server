@@ -9,7 +9,7 @@ const ConfirmOrder = () => {
     const [token, setToken] = useState('');
     const [taka, setTaka] = useState('');
     const [addminSuccess, setAdminSuccess] = useState(false);
-    const [addminSuccesss, setAdminSuccesss] = useState(false);
+    // const [addminSuccesss, setAdminSuccesss] = useState(false);
 
 
     const handleInput = (e) => {
@@ -54,7 +54,7 @@ const ConfirmOrder = () => {
 
             <form onSubmit={handleStatus}>
                 {addminSuccess && <Alert sx={{ width: "50%", marginLeft: 39, mb: 2 }} severity="success">Confirm Successfully</Alert> }
-                {addminSuccesss && <Alert sx={{ width: "50%", marginLeft: 39, mb: 2 }} severity="error">Order Already Confirm</Alert>}
+                {/* {addminSuccesss && <Alert sx={{ width: "50%", marginLeft: 39, mb: 2 }} severity="error">Order Already Confirm</Alert>} */}
                 <TextField
                     required
                     sx={{ width: "50%", m: 2 }}

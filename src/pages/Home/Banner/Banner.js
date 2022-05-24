@@ -1,5 +1,6 @@
 import React from 'react';
-import bg from '../../../images/lipstick.jpg'
+import bg from '../../../images/banner.jpg'
+import bg3 from '../../../images/banner3.jpg'
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
@@ -28,7 +29,7 @@ const Banner = () => {
             </div>
           </div>
           <div className="carousel-item">
-            <img src={bg} className="d-block w-100" alt="..."/>
+            <img src={bg3} className="d-block w-100" alt="..."/>
             <div className="carousel-caption d-none d-md-block">
               <Link to="/explorehome"> <Button variant="contained" sx={{color: 'white'}}>Explore More</Button> </Link>
             </div>
