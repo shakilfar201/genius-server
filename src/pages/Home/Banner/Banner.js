@@ -19,7 +19,7 @@ const Banner = () => {
           <div className="carousel-item active">
             <img src={bg} className="d-block w-100" alt="..."/>
             <div className="carousel-caption d-none d-md-block">
-            <Link to="/explorehome"> <Button variant="contained" sx={{color: 'white'}}>Explore More</Button> </Link>
+            <Link to="/exploreInventory"> <Button variant="contained" sx={{color: 'white'}}>Explore More</Button> </Link>
             </div>
           </div>
           <div className="carousel-item">

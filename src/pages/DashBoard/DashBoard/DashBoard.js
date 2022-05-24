@@ -24,7 +24,7 @@ import AddProduct from './AddProduct/AddProduct';
 import ManageOrder from './ManageOrder/ManageOrder';
 import useAuth from '../../../hooks/useAuth';
 import ManageProduct from './ManageProduct/ManageProduct';
-import Review from './Review/Review';
+// import Review from './Review/Review';
 import UserPay from './UserPay/UserPay';
 import ConfirmOrder from './ConfirmOrder/ConfirmOrder';
 
@@ -53,7 +53,7 @@ function DashBoard(props) {
 
             <Link to={`${url}`}> <Button color="inherit" variant="text">My Order</Button> </Link>
             <Link to={`${url}/payment`}> <Button color="inherit" variant="text">pay</Button> </Link>
-            <Link to={`${url}/review`}> <Button color="inherit" variant="text">Review</Button> </Link>
+            {/* <Link to={`${url}/review`}> <Button color="inherit" variant="text">Review</Button> </Link> */}
 
             {admin && <Box>
                 <Link to={`${url}/makeAdmin`}> <Button color="inherit" variant="text">Make Admin</Button> </Link>
@@ -151,9 +151,9 @@ function DashBoard(props) {
                     <Route path={`${path}/payment`}>
                         <UserPay></UserPay>
                     </Route>
-                    <Route path={`${path}/review`}>
+                    {/* <Route path={`${path}/review`}>
                         <Review></Review>
-                    </Route>
+                    </Route> */}
                     <Route path={`${path}/confirm`}>
                         <ConfirmOrder></ConfirmOrder>
                     </Route>
