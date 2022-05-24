@@ -38,6 +38,7 @@ const PlaceOrder = () => {
         const newOrder = { ...order };
         newOrder[field] = value;
         setOrder(newOrder)
+        console.log(newOrder)
         e.preventDefault()
     }
 

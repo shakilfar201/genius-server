@@ -7,6 +7,7 @@ import { Alert } from '@mui/material';
 
 const ConfirmOrder = () => {
     const [token, setToken] = useState('');
+    const [taka, setTaka] = useState('');
     const [addminSuccess, setAdminSuccess] = useState(false);
     const [addminSuccesss, setAdminSuccesss] = useState(false);
 
@@ -16,9 +17,15 @@ const ConfirmOrder = () => {
         setToken(e.target.value)
     }
 
+    const handleInputt = (e) => {
+        console.log(e.target.value)
+        setTaka(e.target.value)
+    }
+
     const handleStatus = (e) => {
         e.preventDefault()
-        const user = { token }
+        const user = { token, taka }
+        console.log(user)
         console.log(user)
         fetch('https://calm-everglades-03915.herokuapp.com/booking', {
             method: 'PUT',
@@ -29,13 +36,13 @@ const ConfirmOrder = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
+                console.log(data)
                 if (data.modifiedCount){
                     setAdminSuccess(true)
                 }
-                if(data.matchedCount){
-                    setAdminSuccesss(true)
-                }
+                // if(data.matchedCount){
+                //     setAdminSuccesss(true)
+                // }
             })
     }
 
@@ -49,11 +56,21 @@ const ConfirmOrder = () => {
                 {addminSuccess && <Alert sx={{ width: "50%", marginLeft: 39, mb: 2 }} severity="success">Confirm Successfully</Alert> }
                 {addminSuccesss && <Alert sx={{ width: "50%", marginLeft: 39, mb: 2 }} severity="error">Order Already Confirm</Alert>}
                 <TextField
+                    required
                     sx={{ width: "50%", m: 2 }}
                     id="outlined-basic"
                     label="Token No"
                     type="token"
                     onBlur={handleInput}
+                    variant="outlined" /> <br/>
+
+                <TextField
+                    required
+                    sx={{ width: "50%", m: 2 }}
+                    id="outlined-basic"
+                    label="Taka"
+                    type="token"
+                    onBlur={handleInputt}
                     variant="outlined" /> <br/>
                 <Button type="submit" variant="contained">Confirm </Button>
             </form>

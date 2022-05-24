@@ -62,6 +62,7 @@ const Bookinfo = () => {
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Product Name</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Quantity</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Phone Number</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Taka</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Status</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Action</TableCell>
                         </TableRow>
@@ -87,6 +88,7 @@ const Bookinfo = () => {
                                 <TableCell align="right">{row.productName}</TableCell>
                                 <TableCell align="right">{row.quantity}</TableCell>
                                 <TableCell align="right">{row.phoneNumber}</TableCell>
+                                <TableCell align="right">{row.taka}</TableCell>
                                 {
                                     row?.status ? <TableCell sx={{color: 'green'}} align="right">{row.status}</TableCell> : <TableCell sx={{color: 'red'}} align="right">Pending</TableCell>
                                 }
