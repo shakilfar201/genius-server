@@ -15,7 +15,7 @@ const ManageOrder = () => {
     const [deleteSuccess, setDeleteSuccess] = useState(false);
 
     useEffect(() => {
-        fetch('https://calm-everglades-03915.herokuapp.com/booking/:id')
+        fetch('https://calm-everglades-03915.herokuapp.com/booking')
             .then(res => res.json())
             .then(data => {
                 setAllOrder(data)

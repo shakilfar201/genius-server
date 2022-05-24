@@ -37,10 +37,11 @@ const Bookinfo = () => {
 
 
     useEffect(() => {
-        const url = `https://calm-everglades-03915.herokuapp.com/booking?email=${user.email}`
+        const url = `https://calm-everglades-03915.herokuapp.com/booking/email?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 setShowOrder(data)
             })
     }, [user.email])
