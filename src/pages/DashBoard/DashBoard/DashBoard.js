@@ -49,7 +49,7 @@ function DashBoard(props) {
             <Toolbar />
             <Divider sx={{ mb: 3 }} />
             <Link to="/home"> <Button color="inherit" variant="text">home</Button> </Link>
-            <Link to="/explorehome"> <Button color="inherit" variant="text">Explore Product</Button> </Link>
+            <Link to="/exploreInventory"> <Button color="inherit" variant="text">Explore Product</Button> </Link>
 
             <Link to={`${url}`}> <Button color="inherit" variant="text">My Order</Button> </Link>
             <Link to={`${url}/payment`}> <Button color="inherit" variant="text">pay</Button> </Link>
@@ -100,6 +100,7 @@ function DashBoard(props) {
                 aria-label="mailbox folders"
             >
                 {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+
                 <Drawer
                     container={container}
                     variant="temporary"

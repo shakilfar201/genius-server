@@ -8,6 +8,8 @@ import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import DashBoard from './pages/DashBoard/DashBoard/DashBoard';
 import ExploreHome from './pages/Explore/ExploreHome/ExploreHome';
 import PlaceOrderHome from './pages/PlaceOrder/PlaceOrderHome/PlaceOrderHome';
+import ExploreCar from './pages/ExploreCar/ExploreCar';
+import ExploreCarHome from './pages/ExploreCar/ExploreCarHome/ExploreCarHome';
 
 
 function App() {
@@ -24,6 +26,9 @@ function App() {
             </Route>
             <Route path="/exploreInventory">
               <ExploreHome></ExploreHome>
+            </Route>
+            <Route path="/exploreCars">
+              <ExploreCarHome></ExploreCarHome>
             </Route>
             <PrivateRoute path="/dashboard">
               <DashBoard></DashBoard>

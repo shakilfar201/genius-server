@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Car from './Car';
 import { Typography } from '@mui/material';
+import ExploreProCar from './ExploreProCar/ExploreProCar';
+import './ExploreCar.css';
 
-const CarModel = () => {
-
+const ExploreCar = () => {
     const [carModel, setCarModel] = useState([]);
+    const [displayCar, setDisplayCar] = useState([]);
 
     useEffect(() => {
         const url = "https://calm-everglades-03915.herokuapp.com/carmodel";
@@ -15,17 +16,28 @@ const CarModel = () => {
             .then(data => {
                 setCarModel(data)
             })
-    }, []);
+    }, [])
+
+    const handleSearch = e => {
+        const searchText = e.target.value;
+        const matchCar = carModel.filter(car => car.carName.toLowerCase().includes(searchText.toLowerCase()));
+        setDisplayCar(matchCar);
+    }
 
     return (
         <>
             <Box sx={{ flexGrow: 1 }}>
                 <Typography variant="h3" sx={{ color: '#8e24aa', fontWeight: 600, my: 3 }}>
-                    CAR WISE OUR PARTS
+                    WE HAVE LOT OF CAR 
                 </Typography>
+                <div className="search">
+                    <input type="text"
+                        onChange={handleSearch}
+                        placeholder="Search your car name" />
+                </div>
                 <Grid container spacing={2}>
                     {
-                        carModel.slice(0, 6).map(car => <Car key={car?._id} car={car}></Car>)
+                        displayCar.map(expo => <ExploreProCar key={expo._id} expo={expo}></ExploreProCar>)
                     }
                 </Grid>
             </Box>
@@ -33,4 +45,4 @@ const CarModel = () => {
     );
 };
 
-export default CarModel;
+export default ExploreCar;

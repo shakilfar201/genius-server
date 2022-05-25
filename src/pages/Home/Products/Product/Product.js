@@ -12,12 +12,12 @@ const Product = (props) => {
     
     const { url, name, price, _id, partNo, instock } = props.product;
 
-    const history = useHistory()
+    const history = useHistory();
 
     const handleUrl = (_id) => {
         const url = `/placeOrder/${_id}`
         history.push(url)
-    }
+    };
 
     return (
         <>

@@ -21,7 +21,7 @@ const Products = () => {
         <>
         <Box sx={{ flexGrow: 1 }}>
             <Typography variant="h3" sx={{color: '#8e24aa', fontWeight: 600, my: 3}}>
-                OUR PRODUCT
+                OUR PARTS
             </Typography>
             <Grid container spacing={2}>
                 {
