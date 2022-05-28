@@ -17,18 +17,18 @@ const Car = (props) => {
 
     return (
         <>
-            <Grid item xs={6} md={4} sm={12}>
+            <Grid item xs={6} md={3} sm={12}>
                 <Container>
-                    <Card sx={{ maxWidth: 480, m: 'auto', paddingBottom: '10px' }}>
-                        <Typography variant="h6" sx={{ color: '#f50057', fontSize: '30px' }}>
-                            {carName}
-                        </Typography>
+                    <Card sx={{ maxWidth: 400, m: 'auto', paddingBottom: '20px' }}>
                         <CardMedia
                             component="img"
                             height="300"
                             image={img}
                             alt="Loading Wait"
                         />
+                        <Typography variant="h6" sx={{ color: '#f50057', fontSize: '30px', marginBottom: '-25px' }}>
+                            {carName}
+                        </Typography>
                         <CardContent>
                             {/* <Typography variant="h4" sx={{ color: '#f50057' }}>
                                 k

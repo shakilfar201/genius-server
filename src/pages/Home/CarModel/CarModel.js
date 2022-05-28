@@ -25,7 +25,7 @@ const CarModel = () => {
                 </Typography>
                 <Grid container spacing={2}>
                     {
-                        carModel.slice(0, 6).map(car => <Car key={car?._id} car={car}></Car>)
+                        carModel.map(car => <Car key={car?._id} car={car}></Car>)
                     }
                 </Grid>
             </Box>

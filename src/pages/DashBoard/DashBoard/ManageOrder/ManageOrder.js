@@ -6,13 +6,27 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import delete1 from '../../../../images/delete-removebg-preview.png'
 import { Alert, Button, Grid } from '@mui/material';
 
 const ManageOrder = () => {
-    const [allOrder, setAllOrder] = useState([])
+    const [allOrder, setAllOrder] = useState([]);
+    const [update, setUpdate] = useState('');
+    const [stock, setStock] = useState('');
     const [deleteSuccess, setDeleteSuccess] = useState(false);
+
+    const handleInput = (e) => {
+        console.log(e.target.value)
+        setUpdate(e.target.value)
+    }
+
+    const handleInputt = (e) => {
+        console.log(e.target.value)
+        setStock(e.target.value)
+    }
+
 
     useEffect(() => {
         fetch('https://calm-everglades-03915.herokuapp.com/booking')
@@ -22,6 +36,20 @@ const ManageOrder = () => {
             })
     }, []);
 
+    const handleUpdate = () => {
+        const user = { update, stock }
+        fetch(`https://calm-everglades-03915.herokuapp.com/products/quantity`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+    }
 
     const handleDelete = (id) => {
         const proceed = window.confirm("Are You sure Admin, You Want to Delete user Order?")
@@ -57,9 +85,13 @@ const ManageOrder = () => {
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Product Name</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Quantity</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Phone Number</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Taka</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Total Taka</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Discount</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">N.P</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">A.S</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Status</TableCell>
                             <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Action</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">U.P</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -83,11 +115,59 @@ const ManageOrder = () => {
                                 <TableCell align="right">{row.productName}</TableCell>
                                 <TableCell align="right">{row.quantity}</TableCell>
                                 <TableCell align="right">{row.phoneNumber}</TableCell>
-                                <TableCell align="right">{row.taka}</TableCell>
+                                <TableCell align="right">{row.cashTaka * row.quantity}</TableCell>
                                 {
-                                    row?.status ? <TableCell sx={{color: 'green'}} align="right">{row.status}</TableCell> : <TableCell sx={{color: 'red'}} align="right">Pending</TableCell>
+                                    row?.taka ? <TableCell align="right">{row.taka}</TableCell> : <TableCell sx={{ color: 'red' }} align="right">No Discount</TableCell>
+                                }
+                                {
+                                    row?.taka ? <TableCell align="right">{row.cashTaka * row.quantity - row?.taka}</TableCell> : <TableCell sx={{ color: '#3498db' }} align="right">Not Available</TableCell>
+                                }
+                                <TableCell align="right">{row.stock - row.quantity}</TableCell>
+                                {
+                                    row?.status ? <TableCell sx={{ color: 'green' }} align="right">{row.status}</TableCell> : <TableCell sx={{ color: 'red' }} align="right">Pending</TableCell>
                                 }
                                 <TableCell align="right"> <Button sx={{ color: 'red' }} onClick={() => handleDelete(row?._id)}>Delete</Button> </TableCell>
+
+                                <TableCell align="right">
+                                    <button type="button" class="btn btn-primary w-20" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                        Yes
+                                    </button>
+
+
+                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Update Stock</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <TextField
+                                                        required
+                                                        sx={{ width: "50%", m: 2 }}
+                                                        id="outlined-basic"
+                                                        label="PartNo"
+                                                        type="price"
+                                                        onBlur={handleInput}
+                                                        variant="outlined" /> <br />
+
+                                                    <TextField
+                                                        required
+                                                        sx={{ width: "50%", m: 2 }}
+                                                        id="outlined-basic"
+                                                        label="Available Stock"
+                                                        type="price"
+                                                        onBlur={handleInputt}
+                                                        variant="outlined" /> <br />
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary w-20" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" onClick={()=> handleUpdate()} class="btn btn-primary w-20">Update</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> </TableCell>
+
                             </TableRow>
                         ))}
                     </TableBody>

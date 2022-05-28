@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import './ExplorePro.css';
@@ -8,14 +8,12 @@ const ExplorePro = (props) => {
     const { url, name, price, _id, partNo, Block, instock, selfName, side } = props.expo;
     const { admin } = useAuth();
 
-
     const history = useHistory();
 
     const handleUrl = (_id) => {
         const url = `/placeOrder/${_id}`
         history.push(url)
     }
-
 
     return (
         <>
@@ -36,7 +34,7 @@ const ExplorePro = (props) => {
                                 <li><h2>side:</h2> {side} </li>
                             </ol>}
                         </div>
-                        <Button onClick={()=>handleUrl(_id)} variant="contained">Order Now</Button>
+                        <Button onClick={() => handleUrl(_id)} variant="contained">Order Now</Button>
                     </div>
                 </div>
             </div>

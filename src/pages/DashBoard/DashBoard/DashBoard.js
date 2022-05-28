@@ -27,8 +27,11 @@ import ManageProduct from './ManageProduct/ManageProduct';
 // import Review from './Review/Review';
 import UserPay from './UserPay/UserPay';
 import ConfirmOrder from './ConfirmOrder/ConfirmOrder';
+import AddCars from './AddCars/AddCars';
+import ManageCar from './ManageCars/ManageCar';
 
-const drawerWidth = 240;
+
+const drawerWidth = 150;
 
 function DashBoard(props) {
     const { window } = props;
@@ -50,6 +53,7 @@ function DashBoard(props) {
             <Divider sx={{ mb: 3 }} />
             <Link to="/home"> <Button color="inherit" variant="text">home</Button> </Link>
             <Link to="/exploreInventory"> <Button color="inherit" variant="text">Explore Product</Button> </Link>
+            <Link to="/exploreCars"> <Button color="inherit" variant="text">Explore Car wise Parts</Button> </Link>
 
             <Link to={`${url}`}> <Button color="inherit" variant="text">My Order</Button> </Link>
             <Link to={`${url}/payment`}> <Button color="inherit" variant="text">pay</Button> </Link>
@@ -59,6 +63,8 @@ function DashBoard(props) {
                 <Link to={`${url}/makeAdmin`}> <Button color="inherit" variant="text">Make Admin</Button> </Link>
 
                 <Link to={`${url}/addProduct`}> <Button color="inherit" variant="text">Add Product</Button> </Link>
+                <Link to={`${url}/addCars`}> <Button color="inherit" variant="text">Add Cars</Button> </Link>
+                <Link to={`${url}/manageCars`}> <Button color="inherit" variant="text">Manage Car</Button> </Link>
                 <Link to={`${url}/manageOrders`}> <Button color="inherit" variant="text">Manage Order</Button> </Link>
                 <Link to={`${url}/manageproduct`}> <Button color="inherit" variant="text">Manage Product</Button> </Link>
                 <Link to={`${url}/confirm`}> <Button color="inherit" variant="text">Confirm Order</Button> </Link>
@@ -143,11 +149,17 @@ function DashBoard(props) {
                     <Route path={`${path}/addProduct`}>
                         <AddProduct></AddProduct>
                     </Route>
+                    <Route path={`${path}/addCars`}>
+                        <AddCars></AddCars>
+                    </Route>
                     <Route path={`${path}/manageOrders`}>
                         <ManageOrder></ManageOrder>
                     </Route>
                     <Route path={`${path}/manageproduct`}>
                         <ManageProduct></ManageProduct>
+                    </Route>
+                    <Route path={`${path}/manageCars`}>
+                        <ManageCar></ManageCar>
                     </Route>
                     <Route path={`${path}/payment`}>
                         <UserPay></UserPay>

@@ -8,6 +8,7 @@ import { Alert } from '@mui/material';
 const ConfirmOrder = () => {
     const [token, setToken] = useState('');
     const [taka, setTaka] = useState('');
+    const [service, setService] = useState('');
     const [addminSuccess, setAdminSuccess] = useState(false);
     // const [addminSuccesss, setAdminSuccesss] = useState(false);
 
@@ -22,11 +23,16 @@ const ConfirmOrder = () => {
         setTaka(e.target.value)
     }
 
+    const handleInputtt = (e) => {
+        console.log(e.target.value)
+        setService(e.target.value)
+    }
+
     const handleStatus = (e) => {
         e.preventDefault()
-        const user = { token, taka }
-        console.log(user)
-        console.log(user)
+        const user = { token, taka, service }
+        // console.log(user)
+        // console.log(user)
         fetch('https://calm-everglades-03915.herokuapp.com/booking', {
             method: 'PUT',
             headers: {
@@ -65,12 +71,20 @@ const ConfirmOrder = () => {
                     variant="outlined" /> <br/>
 
                 <TextField
-                    required
                     sx={{ width: "50%", m: 2 }}
                     id="outlined-basic"
                     label="Taka"
                     type="token"
                     onBlur={handleInputt}
+                    variant="outlined" /> <br/>
+
+                <TextField
+                    required
+                    sx={{ width: "50%", m: 2 }}
+                    id="outlined-basic"
+                    label="Service"
+                    type="token"
+                    onBlur={handleInputtt}
                     variant="outlined" /> <br/>
                 <Button type="submit" variant="contained">Confirm </Button>
             </form>

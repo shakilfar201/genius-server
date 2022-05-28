@@ -28,7 +28,7 @@ const ExploreCar = () => {
         <>
             <Box sx={{ flexGrow: 1 }}>
                 <Typography variant="h3" sx={{ color: '#8e24aa', fontWeight: 600, my: 3 }}>
-                    WE HAVE LOT OF CAR 
+                    WE HAVE LOT OF CAR
                 </Typography>
                 <div className="search">
                     <input type="text"

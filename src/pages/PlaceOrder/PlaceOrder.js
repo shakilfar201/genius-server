@@ -15,6 +15,7 @@ const PlaceOrder = () => {
     const { user } = useAuth();
 
     const [single, setSingle] = useState([]);
+    // const [inStock, setInStock] = useState([]);
     const [bookSuccess, setBookSuccess] = useState(false);
     // const [tokenConfirm, setTokenConfirm] = useState('');
 
@@ -42,14 +43,22 @@ const PlaceOrder = () => {
         e.preventDefault()
     }
 
+    // const handleonBlurr = (e) => {
+    //     setInStock(e.target.value)
+    //     console.log(e.target.value)
+    //     e.preventDefault()
+    // }
+
     const handleOrder = (e) => {
         const orderBook = {
             ...order,
             productName: single.name,
             productPrice: single.price,
             productID: single._id,
+            cashTaka: single.partNo,
+            stock: single.instock,
         }
-        // console.log(orderBook)
+        console.log(orderBook)
         fetch('https://calm-everglades-03915.herokuapp.com/booking', {
             method: 'POST',
             headers: {
@@ -90,8 +99,6 @@ const PlaceOrder = () => {
 
                         {bookSuccess && <Alert sx={{ width: "75%", marginLeft: '60px', mb: 2 }} severity="success">Order Placed Successfully! Go To Dashboard</Alert>}
 
-                        <div id="btn" onClick={getToken} className="button"><button className="design-btn">Generate token</button></div>
-
                         <form onSubmit={handleOrder}>
                             <Typography variant="h5" sx={{ color: 'green', fontWeight: 600, textAlign: 'left', ml: 9, mb: 5 }}>
                                 Product Name: {single.name}
@@ -106,8 +113,9 @@ const PlaceOrder = () => {
                                 size="small"
                             />
                             {/* <input type="text" name="token" onBlur={handleonBlur} placeholder="Token No" id="token" /> */}
-                            
+
                             <TextField
+                                required
                                 sx={{ width: "75%", m: 1 }}
                                 label="Token No"
                                 id="token"
@@ -115,6 +123,8 @@ const PlaceOrder = () => {
                                 name="token"
                                 size="small"
                             />
+
+                            <div id="btn" onClick={getToken} className="button"><button className="design-btn">Generate token</button></div>
 
                             <TextField
                                 sx={{ width: "75%", m: 1 }}
