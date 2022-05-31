@@ -10,6 +10,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import delete1 from '../../../../images/delete-removebg-preview.png'
 import { Alert, Button, Grid } from '@mui/material';
+import { useHistory } from 'react-router';
 
 const ManageOrder = () => {
     const [allOrder, setAllOrder] = useState([]);
@@ -25,6 +26,13 @@ const ManageOrder = () => {
     const handleInputt = (e) => {
         console.log(e.target.value)
         setStock(e.target.value)
+    }
+
+    const history = useHistory();
+
+    const handleUrl = (id) => {
+        const url = `/invoice/${id}`
+        history.push(url)
     }
 
 
@@ -78,20 +86,21 @@ const ManageOrder = () => {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }}>Token No</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }}>Customer Name</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }}>Customer Email</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }}>Part No</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Product Name</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Quantity</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Phone Number</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Total Taka</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Discount</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">N.P</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">A.S</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Status</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">Action</TableCell>
-                            <TableCell sx={{ fontWeight: 600, fontSize: 18 }} align="right">U.P</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 15 }}>Token No</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 15 }}>Customer Name</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 15 }}>Customer Email</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 15 }}>Part No</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 15 }} align="right">Product Name</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 15 }} align="right">Quantity</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 15 }} align="right">Phone Number</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 15 }} align="right">Total Taka</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 15 }} align="right">Discount</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 15 }} align="right">N.P</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 15 }} align="right">A.S</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 15 }} align="right">Status</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 15 }} align="right">Action</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 15 }} align="right">U.P</TableCell>
+                            <TableCell sx={{ fontWeight: 600, fontSize: 15 }} align="right">Invoice</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -129,19 +138,19 @@ const ManageOrder = () => {
                                 <TableCell align="right"> <Button sx={{ color: 'red' }} onClick={() => handleDelete(row?._id)}>Delete</Button> </TableCell>
 
                                 <TableCell align="right">
-                                    <button type="button" class="btn btn-primary w-20" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    <button type="button" className="btn btn-primary w-20" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                         Yes
                                     </button>
 
 
-                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="staticBackdropLabel">Update Stock</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div className="modal-dialog modal-dialog-centered">
+                                            <div className="modal-content">
+                                                <div className="modal-header">
+                                                    <h5 className="modal-title" id="staticBackdropLabel">Update Stock</h5>
+                                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <div class="modal-body">
+                                                <div className="modal-body">
                                                     <TextField
                                                         required
                                                         sx={{ width: "50%", m: 2 }}
@@ -160,14 +169,14 @@ const ManageOrder = () => {
                                                         onBlur={handleInputt}
                                                         variant="outlined" /> <br />
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary w-20" data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" onClick={()=> handleUpdate()} class="btn btn-primary w-20">Update</button>
+                                                <div className="modal-footer">
+                                                    <button type="button" className="btn btn-primary w-20" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" onClick={()=> handleUpdate()} className="btn btn-primary w-20">Update</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div> </TableCell>
-
+                                    <TableCell align="right"><Button sx={{ fontWeight: 400, fontSize: 12, width: '30px' }} onClick={() => handleUrl(row?._id)} variant="contained">Invoice</Button></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import './ExplorePro.css';
@@ -10,8 +10,8 @@ const ExplorePro = (props) => {
 
     const history = useHistory();
 
-    const handleUrl = (_id) => {
-        const url = `/placeOrder/${_id}`
+    const handleUrl = (id) => {
+        const url = `/placeOrder/${id}`
         history.push(url)
     }
 

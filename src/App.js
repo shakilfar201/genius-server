@@ -9,6 +9,8 @@ import DashBoard from './pages/DashBoard/DashBoard/DashBoard';
 import ExploreHome from './pages/Explore/ExploreHome/ExploreHome';
 import PlaceOrderHome from './pages/PlaceOrder/PlaceOrderHome/PlaceOrderHome';
 import ExploreCarHome from './pages/ExploreCar/ExploreCarHome/ExploreCarHome';
+import Invoice from './pages/DashBoard/Invoice/Invoice';
+
 
 
 function App() {
@@ -35,6 +37,9 @@ function App() {
             <PrivateRoute exact path="/placeorder/:id">
               <PlaceOrderHome></PlaceOrderHome>
             </PrivateRoute>
+            <Route  path="/invoice/:id">
+              <Invoice></Invoice>
+            </Route>
             <Route path="/login">
               <Login></Login>
             </Route>
