@@ -18,6 +18,8 @@ const PlaceOrder = () => {
     // const [inStock, setInStock] = useState([]);
     const [bookSuccess, setBookSuccess] = useState(false);
     // const [tokenConfirm, setTokenConfirm] = useState('');
+    // eslint-disable-next-line no-unused-vars
+    const [date, setDate] = useState(new Date());
 
     const initialize = { customerName: user.displayName, email: user.email }
 
@@ -57,6 +59,7 @@ const PlaceOrder = () => {
             productID: single._id,
             cashTaka: single.partNo,
             stock: single.instock,
+            date: date.toLocaleDateString(),
         }
         console.log(orderBook)
         fetch('https://calm-everglades-03915.herokuapp.com/booking', {

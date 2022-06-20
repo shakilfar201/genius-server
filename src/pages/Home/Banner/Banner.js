@@ -20,21 +20,21 @@ const Banner = () => {
             <img src={bg} className="d-block w-100" alt="..."/>
             <div className="carousel-caption d-none d-md-block">
             <Link to="/exploreInventory"> <Button variant="contained" sx={{color: 'white'}}>Explore Parts</Button> </Link>
-            <Link to="/exploreCars"> <Button variant="contained" sx={{color: 'white'}}>Explore Car wise Parts</Button> </Link>
+            {/* <Link to="/exploreCars"> <Button variant="contained" sx={{color: 'white'}}>Explore Car wise Parts</Button> </Link> */}
             </div>
           </div>
           <div className="carousel-item">
             <img src={bg} className="d-block w-100" alt="..."/>
             <div className="carousel-caption d-none d-md-block">
             <Link to="/exploreInventory"> <Button variant="contained" sx={{color: 'white'}}>Explore Parts</Button> </Link>
-            <Link to="/exploreCars"> <Button variant="contained" sx={{color: 'white'}}>Explore Car wise Parts</Button> </Link>
+            {/* <Link to="/exploreCars"> <Button variant="contained" sx={{color: 'white'}}>Explore Car wise Parts</Button> </Link> */}
             </div>
           </div>
           <div className="carousel-item">
             <img src={bg3} className="d-block w-100" alt="..."/>
             <div className="carousel-caption d-none d-md-block">
               <Link to="/exploreInventory"> <Button variant="contained" sx={{color: 'white'}}>Explore Parts</Button> </Link>
-              <Link to="/exploreCars"> <Button variant="contained" sx={{color: 'white'}}>Explore Car wise Parts</Button> </Link>
+              {/* <Link to="/exploreCars"> <Button variant="contained" sx={{color: 'white'}}>Explore Car wise Parts</Button> </Link> */}
             </div>
           </div>
         </div>

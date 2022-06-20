@@ -4,7 +4,6 @@ import Banner from '../Banner/Banner';
 import CarModel from '../CarModel/CarModel';
 import Footer from '../Footer/Footer';
 import Products from '../Products/Products';
-import ShowReview from '../ShowReview/ShowReview';
 import Contact from './Contact/Contact';
 
 const Home = () => {

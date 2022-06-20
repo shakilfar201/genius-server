@@ -49,7 +49,17 @@ const AddProduct = () => {
                     onBlur={handleonBlur}
                     type="text"
                     variant="standard" />
-                    
+
+                <TextField
+                    sx={{ width: "75%", m: 1 }}
+                    required
+                    id="standard-basic"
+                    label="Car Name"
+                    name="Carname"
+                    onBlur={handleonBlur}
+                    type="text"
+                    variant="standard" />  
+
                 <TextField
                     sx={{ width: "75%", m: 1 }}
                     required
@@ -77,6 +87,26 @@ const AddProduct = () => {
                     id="standard-basic"
                     label="Price"
                     name="partNo"
+                    onBlur={handleonBlur}
+                    type="text"
+                    variant="standard" />
+
+                <TextField
+                    sx={{ width: "75%", m: 1 }}
+                    // required
+                    id="standard-basic"
+                    label="Type"
+                    name="type"
+                    onBlur={handleonBlur}
+                    type="text"
+                    variant="standard" />
+
+                <TextField
+                    sx={{ width: "75%", m: 1 }}
+                    // required
+                    id="standard-basic"
+                    label="Condition"
+                    name="condition"
                     onBlur={handleonBlur}
                     type="text"
                     variant="standard" />

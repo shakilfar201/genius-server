@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Car from './Car';
@@ -6,16 +6,16 @@ import { Typography } from '@mui/material';
 
 const CarModel = () => {
 
-    const [carModel, setCarModel] = useState([]);
+    // const [carModel, setCarModel] = useState([]);
 
-    useEffect(() => {
-        const url = "https://calm-everglades-03915.herokuapp.com/carmodel";
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                setCarModel(data)
-            })
-    }, []);
+    // useEffect(() => {
+    //     const url = "https://calm-everglades-03915.herokuapp.com/carmodel";
+    //     fetch(url)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setCarModel(data)
+    //         })
+    // }, []);
 
     return (
         <>
@@ -23,10 +23,8 @@ const CarModel = () => {
                 <Typography variant="h3" sx={{ color: '#8e24aa', fontWeight: 600, my: 3 }}>
                     CAR WISE OUR PARTS
                 </Typography>
-                <Grid container spacing={2}>
-                    {
-                        carModel.map(car => <Car key={car?._id} car={car}></Car>)
-                    }
+                <Grid container spacing={12}>
+                    <Car></Car>
                 </Grid>
             </Box>
         </>

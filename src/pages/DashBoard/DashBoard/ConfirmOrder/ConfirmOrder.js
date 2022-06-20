@@ -44,7 +44,6 @@ const ConfirmOrder = () => {
         e.preventDefault()
         const user = { token, taka, value }
         // console.log(user)
-        // console.log(user)
         fetch('https://calm-everglades-03915.herokuapp.com/booking', {
             method: 'PUT',
             headers: {

@@ -1,0 +1,109 @@
+.parts1{
+    margin-right: 50px;
+}
+
+@media screen and (max-width: 780px){
+    .parts1{
+        margin-right: 20px;
+    }
+}
+
+.heading2{
+    padding: 20px 0;
+}
+.container2{
+    max-width: 1300px;
+    margin: auto;
+}
+.part-container2{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.part-container2 .box2{
+    position: relative;
+    padding: 20px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    background: #f6f6f6;
+    border-radius: 0.5rem;
+}
+
+.part-container2 .box2 img{
+    width: 365px;
+    height: 400px;
+    object-fit: contain;
+    object-position: center;
+    margin-bottom: 1rem;
+}
+
+.part-container2 .box2 h3{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.part-container2 .box2 span{
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(31, 30, 30);
+    margin: 0.5rem 0;
+}
+
+.btn2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    border-radius: 25px;
+    padding: 10px 22px;
+    border: none;
+    outline: none;
+    margin-bottom: 14px;
+    color: white;
+    background: #27ae60;
+}
+
+.btn2:hover{
+    cursor: pointer;
+    transition:all .4s ease-in-out;
+    background: none;
+    color: black;
+    box-shadow: 1px 2px 7px rgba(0,0,0, .4);
+}
+
+
+
+.part-container2 .box2 .btn2{
+    margin-top: 10px;
+    max-width: 120px;
+}
+.part-container2 .box2 .details2{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 2.3rem;
+    right: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: #3498db;
+}
+
+.part-container2 .box2 .details2:hover{
+    cursor: pointer;
+    transition:all .4s ease-in-out;
+    background: #3498db;
+    outline: none;
+    border: none;
+    color: #FFF;
+}
+
+.description2 ol{
+    display: block;
+}
+.description2 ol li{
+    display: block;
+    list-style: none;
+}

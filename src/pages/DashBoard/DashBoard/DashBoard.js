@@ -29,6 +29,8 @@ import UserPay from './UserPay/UserPay';
 import ConfirmOrder from './ConfirmOrder/ConfirmOrder';
 import AddCars from './AddCars/AddCars';
 import ManageCar from './ManageCars/ManageCar';
+import DateWise from './DateWiseOrder/DateWise';
+// import CarMatchine from './CarMatchine/CarMatchine';
 
 
 
@@ -54,10 +56,10 @@ function DashBoard(props) {
             <Divider sx={{ mb: 3 }} />
             <Link to="/home"> <Button color="inherit" variant="text">home</Button> </Link>
             <Link to="/exploreInventory"> <Button color="inherit" variant="text">Explore Product</Button> </Link>
-            <Link to="/exploreCars"> <Button color="inherit" variant="text">Explore Car wise Parts</Button> </Link>
+            {/* <Link to="/exploreCars"> <Button color="inherit" variant="text">Explore Car wise Parts</Button> </Link> */}
 
             <Link to={`${url}`}> <Button color="inherit" variant="text">My Order</Button> </Link>
-            <Link to={`${url}/payment`}> <Button color="inherit" variant="text">pay</Button> </Link>
+            {/* <Link to={`${url}/payment`}> <Button color="inherit" variant="text">pay</Button> </Link> */}
             {/* <Link to={`${url}/review`}> <Button color="inherit" variant="text">Review</Button> </Link> */}
 
             {admin && <Box>
@@ -69,6 +71,8 @@ function DashBoard(props) {
                 <Link to={`${url}/manageOrders`}> <Button color="inherit" variant="text">Manage Order</Button> </Link>
                 <Link to={`${url}/manageproduct`}> <Button color="inherit" variant="text">Manage Product</Button> </Link>
                 <Link to={`${url}/confirm`}> <Button color="inherit" variant="text">Confirm Order</Button> </Link>
+                <Link to={`${url}/DateOrder`}> <Button color="inherit" variant="text">Date wise Order</Button> </Link>
+                {/* <Link to={`${url}/CarMatchine`}> <Button color="inherit" variant="text">Car Matchine Entry</Button> </Link> */}
             </Box>}
             <Button onClick={()=>logOut(location,history)} color="inherit" variant="text">Logout</Button>
         </div>
@@ -171,6 +175,12 @@ function DashBoard(props) {
                     <Route path={`${path}/confirm`}>
                         <ConfirmOrder></ConfirmOrder>
                     </Route>
+                    <Route path={`${path}/DateOrder`}>
+                        <DateWise></DateWise>
+                    </Route>
+                    {/* <Route path={`${path}/CarMatchine`}>
+                        <CarMatchine></CarMatchine>
+                    </Route> */}
                 </Switch>
 
             </Box>
