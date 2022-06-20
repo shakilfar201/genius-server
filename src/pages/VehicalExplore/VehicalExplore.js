@@ -5,6 +5,7 @@ import './VehicalHome/Vehical.css';
 import AceEngine from '../Vehicale/Ace/AceEngine';
 import { useEffect } from 'react';
 import AceClutch from '../Vehicale/Ace/AceClutch';
+import Box from '@mui/material/Box';
 
 
 
@@ -40,6 +41,7 @@ const VehicalExplore = () => {
 
     return (
         <>
+         <Box sx={{ flexGrow: 1 }}>
             <div className="display">
                 <Grid item xs={2}>
                     <ul className="ul">
@@ -62,6 +64,7 @@ const VehicalExplore = () => {
                     {clutch && aceClutch.map(expo => <AceClutch key={expo._id} expo={expo}></AceClutch>)}
                 </Grid>
             </div>
+            </Box>
         </>
     );
 };

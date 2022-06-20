@@ -1,10 +1,11 @@
-.parts1{
-    margin-right: 50px;
+.parts1 {
+    margin-left: 80px;
+    margin-right: 15px;
 }
 
 @media screen and (max-width: 780px){
     .parts1{
-        margin-left: 200px !important;
+        margin-left: 10px;
     }
 }
 

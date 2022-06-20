@@ -17,7 +17,7 @@ const AceEngine = (props) => {
     return (
         <>
             <div className="parts1">
-                <div data-aos="zoom-out-up" className="part-container2 container2">
+                <div className="part-container2 container2">
                     <div className="box2">
                         <img src={url} alt="" />
                         <div className="description2">
