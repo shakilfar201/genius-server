@@ -4,7 +4,7 @@
 
 @media screen and (max-width: 780px){
     .parts1{
-        margin-left: 202px;
+        margin-left: 200px !important;
     }
 }
 
