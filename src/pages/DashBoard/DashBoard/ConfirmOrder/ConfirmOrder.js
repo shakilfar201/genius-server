@@ -12,7 +12,7 @@ import { Alert } from '@mui/material';
 
 const ConfirmOrder = () => {
     const [token, setToken] = useState('');
-    const [taka, setTaka] = useState('');
+    // const [taka, setTaka] = useState('');
     // const [service, setService] = useState('');
     const [addminSuccess, setAdminSuccess] = useState(false);
     const [value, setValue] = React.useState('');
@@ -30,10 +30,10 @@ const ConfirmOrder = () => {
         setToken(e.target.value)
     }
 
-    const handleInputt = (e) => {
-        console.log(e.target.value)
-        setTaka(e.target.value)
-    }
+    // const handleInputt = (e) => {
+    //     console.log(e.target.value)
+    //     setTaka(e.target.value)
+    // }
 
     // const handleInputtt = (e) => {
     //     console.log(e.target.value)
@@ -42,7 +42,7 @@ const ConfirmOrder = () => {
 
     const handleStatus = (e) => {
         e.preventDefault()
-        const user = { token, taka, value }
+        const user = { token, value }
         // console.log(user)
         fetch('https://calm-everglades-03915.herokuapp.com/booking', {
             method: 'PUT',
@@ -81,13 +81,13 @@ const ConfirmOrder = () => {
                     onBlur={handleInput}
                     variant="outlined" /> <br />
 
-                <TextField
+                {/* <TextField
                     sx={{ width: "50%", m: 2 }}
                     id="outlined-basic"
                     label="Discount Taka"
                     type="token"
                     onBlur={handleInputt}
-                    variant="outlined" /> <br />
+                    variant="outlined" /> <br /> */}
 
                 {/* <TextField
                     required

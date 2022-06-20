@@ -90,18 +90,18 @@ const Bookinfo = () => {
                                 <TableCell align="right">{row.productName}</TableCell>
                                 <TableCell align="right">{row.quantity}</TableCell>
                                 <TableCell align="right">{row.phoneNumber}</TableCell>
-                                <TableCell align="right">{row.cashTaka * row.quantity }</TableCell>
+                                <TableCell align="right">{row.cashTaka * row.quantity}</TableCell>
+
+                                <TableCell sx={{ color: 'green' }} align="right">Available</TableCell>
+
                                 {
-                                    row?.taka ? <TableCell align="right">{row.taka}</TableCell> : <TableCell sx={{ color: 'red' }} align="right">No Discount</TableCell>
+                                    row?.quantity ? <TableCell align="right">{row.cashTaka * row.quantity / 15}</TableCell> : <TableCell sx={{ color: '#3498db' }} align="right">Not Available</TableCell>
                                 }
                                 {
-                                    row?.taka ? <TableCell align="right">{row.cashTaka * row.quantity - row?.taka }</TableCell> : <TableCell sx={{ color: '#3498db' }} align="right">Not Available</TableCell>
+                                    row?.status ? <TableCell sx={{ color: 'green' }} align="right">{row.status}</TableCell> : <TableCell sx={{ color: 'red' }} align="right">Pending</TableCell>
                                 }
                                 {
-                                    row?.status ? <TableCell sx={{color: 'green'}} align="right">{row.status}</TableCell> : <TableCell sx={{color: 'red'}} align="right">Pending</TableCell>
-                                }
-                                {
-                                    row?.service ? <TableCell sx={{color: '#2980b9'}} align="right">{row.service}</TableCell> : <TableCell sx={{color: 'red'}} align="right">On Process</TableCell>
+                                    row?.service ? <TableCell sx={{ color: '#2980b9' }} align="right">{row.service}</TableCell> : <TableCell sx={{ color: 'red' }} align="right">On Process</TableCell>
                                 }
                             </TableRow>
                         ))}

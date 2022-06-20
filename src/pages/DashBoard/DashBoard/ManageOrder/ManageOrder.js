@@ -125,11 +125,9 @@ const ManageOrder = () => {
                                 <TableCell align="right">{row.quantity}</TableCell>
                                 <TableCell align="right">{row.phoneNumber}</TableCell>
                                 <TableCell align="right">{row.cashTaka * row.quantity}</TableCell>
+                                <TableCell sx={{ color: 'green' }} align="right">Available</TableCell>
                                 {
-                                    row?.taka ? <TableCell align="right">{row.taka}</TableCell> : <TableCell sx={{ color: 'red' }} align="right">No Discount</TableCell>
-                                }
-                                {
-                                    row?.taka ? <TableCell align="right">{row.cashTaka * row.quantity - row?.taka}</TableCell> : <TableCell sx={{ color: '#3498db' }} align="right">Not Available</TableCell>
+                                    row?.quantity ? <TableCell align="right">{row.cashTaka * row.quantity / 15 }</TableCell> : <TableCell sx={{ color: '#3498db' }} align="right">Available</TableCell>
                                 }
                                 <TableCell align="right">{row.stock - row.quantity}</TableCell>
                                 {

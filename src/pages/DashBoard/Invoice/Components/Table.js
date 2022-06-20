@@ -4,7 +4,7 @@ const Table = ({booking}) => {
 
     const taka = booking.cashTaka;
     const total = booking.quantity * booking.cashTaka
-    const discount = booking.quantity * booking.cashTaka / 10
+    const discount = booking.quantity * booking.cashTaka / 15
     const cashTotal = (total - discount) + 50
     return (
         <>
